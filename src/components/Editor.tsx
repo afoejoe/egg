@@ -4,6 +4,9 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { Textarea } from './ui/textarea';
+
 /** Add fonts into your Next.js project:
 
 import { Inter } from 'next/font/google'
@@ -19,51 +22,65 @@ To read more about using these font, please visit the Next.js documentation:
 **/
 export function Editor() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-full max-w-3xl px-6 py-8 bg-white rounded-lg shadow-lg dark:bg-gray-800">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">REPL</h1>
-        </div>
-        <div className="mb-6">
-          <textarea
-            className="w-full px-4 py-3 text-gray-900 bg-gray-100 border-none rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 dark:bg-gray-700"
-            placeholder="Enter your code here..."
-            rows={6}
-          />
-        </div>
-        <div className="p-4 rounded-md">
-          <div className="text-red-500 dark:text-green-500">Waiting for input...</div>
-        </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="w-full max-w-3xl px-4 sm:px-6 py-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>EGG</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <Textarea
+              className="w-full px-4 py-3 text-gray-900 bg-gray-100 border-none rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-100 dark:bg-gray-700"
+              placeholder="Enter your code here..."
+              rows={6}
+            />
+          </CardContent>
+          <CardFooter className="p-4 rounded-md">
+            <div className="text-red-500 dark:text-green-500">Waiting for input...</div>
+          </CardFooter>
+        </Card>
         <div className="mt-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">Previous Prompts</h2>
-          <ul className="space-y-2">
-            <li className="bg-gray-100 p-4 rounded-md dark:bg-gray-700 dark:text-gray-100">
-              <div>Create a REPL with a textarea and output area</div>
-              <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
-                The REPL component was created with a textarea for code input and a pre tag for output display.
-              </div>
-            </li>
-            <li className="bg-gray-100 p-4 rounded-md dark:bg-gray-700 dark:text-gray-100">
-              <div>Add a list of previous prompts</div>
-              <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
-                A list of previous prompts was added, displayed as a list of items with a dark/light mode theme.
-              </div>
-            </li>
-            <li className="bg-gray-100 p-4 rounded-md dark:bg-gray-700 dark:text-gray-100">
-              <div>Ensure the design is visually appealing and responsive</div>
-              <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
-                The design was made visually appealing with a clean layout, proper spacing, and a dark/light mode theme.
-                The component is also responsive and adjusts well on different screen sizes.
-              </div>
-            </li>
-            <li className="bg-gray-100 p-4 rounded-md dark:bg-gray-700 dark:text-gray-100">
-              <div>Add results to the previous prompts list</div>
-              <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
-                The previous prompts list now includes a description of the results for each prompt, providing more
-                context and information to the user.
-              </div>
-            </li>
-          </ul>
+          <CardHeader>
+            <CardTitle>Previous Prompts</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <div className="space-y-4 sm:space-y-6 max-h-[400px] overflow-auto">
+              <Card className="bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
+                <CardContent className="pt-6">
+                  <div>Create a REPL with a textarea and output area</div>
+                  <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
+                    The REPL component was created with a textarea for code input and a pre tag for output display.
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
+                <CardContent className="pt-6">
+                  <div>Add a list of previous prompts</div>
+                  <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
+                    A list of previous prompts was added, displayed as a list of items with a dark/light mode theme.
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
+                <CardContent className="pt-6">
+                  <div>Ensure the design is visually appealing and responsive</div>
+                  <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
+                    The design was made visually appealing with a clean layout, proper spacing, and a dark/light mode
+                    theme. The component is also responsive and adjusts well on different screen sizes.
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-gray-100 dark:bg-gray-700 dark:text-gray-100">
+                <CardContent className="pt-6">
+                  <div>Add results to the previous prompts list</div>
+                  <div className="mt-2 text-gray-500 dark:text-gray-400 text-sm">
+                    The previous prompts list now includes a description of the results for each prompt, providing more
+                    context and information to the user.
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </CardContent>
         </div>
       </div>
     </div>
